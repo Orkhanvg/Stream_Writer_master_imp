@@ -11,30 +11,28 @@ namespace Stream_Reader
         /* Department
  - Id
  - Name
- - Employees list*/
+ - employeees list*/
       
-        public Employe employe { get; set; }
+        public employee employee { get; set; }
         public string Name { get; set; }
-        public List<Employe> Employes;
+        public List<employee> employees;
         public Department()
         {
-            Employes   = new List<Employe>();
+            employees   = new List<employee>();
           
             
         }
         
-        /*- AddEmployee() - employee obyekti qebul edecek
-- GetEmployeeById() - id qebul edecek
-- RemoveEmployee() - id qebul edecek*/
-        public void AddEmploye(Employe employe)
+        
+        public void Addemployee(employee employee)
         {
-            Employes.Add(employe);
+            employees.Add(employee);
         }
-        public void GetEmployeeById(int  id)
+        public void GetemployeeeById(int  id)
         {
 
         
-            foreach (var item in Employes.FindAll(i => i.Id == id) )
+            foreach (var item in employees.FindAll(i => i.Id == id) )
             {
                 item.ShowInfo();
             }
@@ -45,10 +43,10 @@ namespace Stream_Reader
             
          
         }
-        public void RemoveEmploye(int id)
+        public void Removeemployee(int id)
         {
             
-                Employes.RemoveAll(item => item.Id == id);
+                employees.RemoveAll(item => item.Id == id);
             
         
 

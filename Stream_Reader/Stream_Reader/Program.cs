@@ -27,8 +27,8 @@ namespace Stream_Reader
             do
             {
                 Console.WriteLine("1.Add emloyee\n" +
-                  "2.Get employe by id\n" +
-                  "3.Remove employee\n" +
+                  "2.Get employee by id\n" +
+                  "3.Remove employeee\n" +
                   "0.Qiut\n");
                 Console.WriteLine("secin");
                 secim=Convert.ToInt32(Console.ReadLine());
@@ -41,9 +41,9 @@ namespace Stream_Reader
                         string Name = Console.ReadLine();
                         Console.WriteLine("Maasi qey edin");
                         int Salary = Convert.ToInt16(Console.ReadLine());
-                        Employe employe = new Employe(Name, Salary);
+                        employee employee = new employee(Name, Salary);
 
-                        department.AddEmploye(employe);
+                        department.Addemployee(employee);
                     
 
                         string result = JsonConvert.SerializeObject(department);
@@ -52,7 +52,7 @@ namespace Stream_Reader
                         {
                             stream.WriteLine(result);
                         }
-                        employe.ShowInfo();
+                        employee.ShowInfo();
 
                         break;
                     case 2:
@@ -66,9 +66,9 @@ namespace Stream_Reader
                             result2 = stream.ReadToEnd();
                         }
                         Department department2 = JsonConvert.DeserializeObject<Department>(result2);
-                        foreach (var item in department2.Employes)
+                        foreach (var item in department2.employees)
                         {
-                          department.GetEmployeeById(item.Id);
+                          department.GetemployeeeById(item.Id);
 
                         }
                         break;
@@ -82,10 +82,10 @@ namespace Stream_Reader
                             result3 = stream.ReadToEnd();
                         }
                         Department department3 = JsonConvert.DeserializeObject<Department>(result3);
-                        foreach (var item in department3.Employes)
+                        foreach (var item in department3.employees)
                         {
 
-                            department.RemoveEmploye(item.Id);
+                            department.Removeemployee(item.Id);
 
                         }
                         string result4 = JsonConvert.SerializeObject(department3);
@@ -99,15 +99,8 @@ namespace Stream_Reader
                     case 0: break;
                 }
 
-            } while (true);  /*
-3-cü əməliyyatda isə yenə 2 ci əməliyyatdakı kimi database.json oxunacaq deserialize olunacaq
-department obyektinə həmin idli employee tapılacaq və listdən silinəcək daha sonra həmin depatment
-yenidən obyekti serialize olunacaq json-a və database.json file-na yazılacaq.*/
+            } while (true);  
 
-
-
-
-
-        }
+         }
     }
 }

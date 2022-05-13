@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stream_Reader
 {
-    internal class Employe
+    internal class employee
     {
     
         private static int _id;
@@ -19,7 +19,7 @@ namespace Stream_Reader
                 $"Salary {Salary}\n" +
                 $"id {Id}");
         }
-        public Employe(string name ,int salary)
+        public employee(string name ,int salary)
         { Name = name; Salary = salary;
             _id++;
             Id = _id;
